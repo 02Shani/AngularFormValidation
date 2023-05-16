@@ -1,0 +1,93 @@
+<div class="card">
+  <h3 class="card-title mt-2 text-center">Register</h3>
+  <div class="card-body">
+    <form [formGroup]="collageRegister">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name" placeholder="Enter name"
+        [ngClass]="{'form-control-danger': !name.valid && (name.dirty || name.touched)}">
+        <div class="text-danger" *ngIf="!name.valid && (name.dirty ||name.touched)">
+          <div [hidden]="!name.errors.pattern">
+            Only characters are allowed
+          </div>
+          <div [hidden]="!name.errors.maxlength">
+            Max length allowed is {{name.errors.maxlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!name.errors.minlength">
+            Max length allowed is {{name.errors.minlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!name.errors.required">
+            Name is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile No</label>
+        <input type="text" class="form-control" formControlName="mobile" id="mobile" placeholder="Enter mobile no"
+        [ngClass]="{'form-control-danger': !mobile.valid && (mobile.dirty || mobile.touched)}">
+        <div class="text-danger" *ngIf="!mobile.valid && (mobile.dirty ||mobile.touched)">
+          <div [hidden]="!mobile.errors.pattern">
+            Only number are allowed
+          </div>
+          <div [hidden]="!mobile.errors.maxlength">
+            Max length allowed is {{mobile.errors.maxlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!mobile.errors.minlength">
+            Min length allowed is {{mobile.errors.minlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!mobile.errors.required">
+            Mobile is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email address"
+        [ngClass]="{'form-control-danger': !email.valid && (email.dirty || email.touched)}">
+        <div class="text-danger" *ngIf="!email.valid && (email.dirty ||email.touched)">
+          <div [hidden]="!email.errors.required">
+            email is required
+          </div>
+          <div [hidden]="!email.errors.email">
+            invalid email id
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter password"
+        [ngClass]="{'form-control-danger': !password.valid && (password.dirty || password.touched)}">
+        <div class="text-danger" *ngIf="!password.valid && (password.dirty ||password.touched)">
+          <div [hidden]="!password.errors.maxlength">
+            Max length allowed is {{password.errors.maxlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!password.errors.minlength">
+            Min length allowed is {{password.errors.minlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!password.errors.required">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="cpassword" id="cpassword" placeholder="Enter Confirm password"
+        [ngClass]="{'form-control-danger': !cpassword.valid && (cpassword.dirty || cpassword.touched)}">
+        <div class="text-danger" *ngIf="!cpassword.valid && (cpassword.dirty ||cpassword.touched)">
+          <div [hidden]="!cpassword.errors.maxlength">
+            Max length allowed is {{cpassword.errors.maxlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!cpassword.errors.minlength">
+            Min length allowed is {{cpassword.errors.minlength?.requiredLength}} 
+          </div>
+          <div [hidden]="!cpassword.errors.required">
+            Confirn Password is required
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-info btn-sm" [disabled]="!collageRegister.valid" (click)="collegeRegister()">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
